@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Codeforces Contests</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  
+</head>
+<body>
+  <div class="container">
+    <center><img src="https://sta.codeforces.com/s/60806/images/codeforces-logo-with-telegram.png" /></center><br>
+    <div class="d-flex">
+      <button class="btn btn-danger mr-4" id="getUsers">All Contest</button>
+	  <input type="text" id="handle" placeholder="Enter handle...">&nbsp
+	  <button class="btn btn-primary mr-4" id="getDetail">Fetch Data</button>
+    </div>
+    <hr>
+    <h1>&nbspContests List :</h1><br>
+    <div id="output"></div>
+  </div>
+
+  <script src="{{url_for('static',filename='index.js')}}"></script>
+</body>
+</html>

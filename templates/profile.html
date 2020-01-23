@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Profile Page</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+		integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+</head>
+
+<body onload="functionToBeExecuted()">
+	<div class="container" style=background:red>
+		<img src="https://sta.codeforces.com/s/60806/images/codeforces-logo-with-telegram.png"/>
+		<h3 style=color:black;margin-left:420px>USER'S PROFILE</h3>
+	</div>
+	<div id="output" style=background:silver></div>
+	</div>
+
+	<script>
+		function functionToBeExecuted() {
+			fetch('https://codeforces.com/api/user.info?handles=' + data)
+				.then(res => res.json())
+				.then(data => {
+					let output = '';
+					data.result.forEach(function (user) {
+						output += `
+			<h2 style=color:black>&nbsp<img src="https://sta.codeforces.com/s/13365/images/icons/star_yellow_24.png"/>${user.maxRank}</h2>			
+			<h2 style=color:navy>&nbsp${user.handle}</h2><br>
+			&nbsp<img src="http://${user.titlePhoto}" alt="My Image">			
+			<ul>	
+			<br><li><b>Contest Rating</b> : ${user.rating}</li><br>
+			<li><b>Name</b> : ${user.firstName} ${user.lastName}</li><br>
+			<li><b>Contribution</b> : +${user.contribution}</li><br>
+			<li><b>Country</b> : ${user.country}</li><br>
+			<li><b>City</b> : ${user.city}</li><br>
+			<li><b>Institution</b> : ${user.organization}</li><br>
+			<li><b>Friend of</b> : ${user.friendOfCount} users</li>
+			</ul>
+			
+
+		`;
+					});
+					document.getElementById('output').innerHTML = output;
+				})
+		}
+
+		function addComment() {
+			var parameters = location.search.substring(1).split("?");
+
+			var temp = parameters[0].split("=");
+			data = unescape(temp[1]);
+		}
+		addComment();
+	</script>
+</body>
+
+</html>

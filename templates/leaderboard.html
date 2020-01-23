@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Contest Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+    integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <style>
+    input[type=number]{
+      width:80px;
+    }
+    </style>
+
+</head>
+
+<body style=background-color:seashell onload="getUsers()">
+  <div class="container">
+    <img src="https://sta.codeforces.com/s/60806/images/codeforces-logo-with-telegram.png" />
+    <div id="output1">
+    </div>
+    <h3>Leaderboard</h3><br>
+    <form><b>From: </b><input type="number" id="from" />&nbsp<b>To: </b><input type="number" id="to" />&nbsp<button
+        type="button" class="btn btn-primary" id="getSort">Go</button></form>
+    <div id="output">
+    </div>
+  </div>
+  <script src="{{url_for('static',filename='leader.js')}}"></script>
+  </body>
+</html>
